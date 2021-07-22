@@ -8,6 +8,5 @@ class Admin::DashboardController < ApplicationController
   def show
     @productsCount = Product.all.size
     @categoriesCount = Category.all.size
-
   end
 end
