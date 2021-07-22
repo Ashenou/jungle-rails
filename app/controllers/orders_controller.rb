@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
 
   def show
+
+    #@line_items = LineItem.where(order_id:params[:id])
     @order = Order.find(params[:id])
+
+   ## @enhanced_line_items = ||= LineItem.where(order_id:params[:id]).map {|product| { name:product.name, quantity: cart[product.id.to_s] } }
+  #@order.line_items.to_sql
   end
 
   def create
