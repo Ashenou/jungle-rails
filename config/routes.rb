@@ -3,6 +3,14 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+  resources :users, only: [:new, :create]
+  
+  #get "/users/login" => "users#login"
+  #post "/users/login" => "users#login"
+  #match 'users', to: 'users#login', via: [:get, :post] ,:as "login_user"
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resource :cart, only: [:show] do
     post :add_item
